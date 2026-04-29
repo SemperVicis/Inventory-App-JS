@@ -2,11 +2,13 @@
   "devDependencies": {
     "@babel/core": "^7.25.9",
     "@babel/preset-env": "^7.25.9",
+    "@vitest/coverage-v8": "^4.1.5",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "loader": "^2.1.1",
     "style": "^0.0.3",
     "tailwindcss": "^3.4.13",
+    "vitest": "^4.1.5",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
@@ -107,16 +109,18 @@
     "yaml": "^2.5.1"
   },
   "scripts": {
-    "dev": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --watch ",
+    "dev": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --watch",
     "build:css": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify",
-    "build:babel": "npm run app-babel && npm run categoryView-babel && npm run productView-babel && npm run storage-babel && npm run baselineCompliance-babel",
-    "tailwind-minify": " tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify  ",
+    "build:js": "webpack --mode production",
+    "build": "npm run build:css && npm run build:js",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "tailwind-minify": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify",
     "app-babel": "babel src/js/app.js -o public/build/babel/app.js --presets @babel/preset-env ",
     "categoryView-babel": "babel src/js/categoryView.js -o public/build/babel/categoryView.js --presets @babel/preset-env  ",
     "productView-babel": "babel src/js/productView.js -o public/build/babel/productView.js --presets @babel/preset-env  ",
     "storage-babel": "babel src/js/storage.js -o public/build/babel/storage.js --presets @babel/preset-env  ",
-    "baselineCompliance-babel": "babel src/js/baselineCompliance.js -o public/build/babel/baselineCompliance.js --presets @babel/preset-env",
-    "build": "npm run build:css && npm run build:babel && webpack"
+    "baselineCompliance-babel": "babel src/js/baselineCompliance.js -o public/build/babel/baselineCompliance.js --presets @babel/preset-env"
   },
   "author": "Abolfazl Rahmati",
   "license": "MIT"
