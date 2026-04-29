@@ -22,7 +22,12 @@ var Storage = exports["default"] = /*#__PURE__*/function () {
   }, {
     key: "getCategories",
     value: function getCategories() {
-      return JSON.parse(localStorage.getItem("categories")) || [];
+      try {
+        var categories = JSON.parse(localStorage.getItem("categories")) || [];
+        return Array.isArray(categories) ? categories : [];
+      } catch (_unused) {
+        return [];
+      }
     }
   }, {
     key: "saveProducts",

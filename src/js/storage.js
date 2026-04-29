@@ -5,7 +5,12 @@ export default class Storage {
     }
 
     static getCategories() {
-        return JSON.parse(localStorage.getItem("categories")) || []
+        try {
+            const categories = JSON.parse(localStorage.getItem("categories")) || []
+            return Array.isArray(categories) ? categories : []
+        } catch {
+            return []
+        }
     }
 
     static saveProducts(productsList) {
