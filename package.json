@@ -119,7 +119,8 @@
     "app-babel": "babel src/js/app.js -o public/build/babel/app.js --presets @babel/preset-env ",
     "categoryView-babel": "babel src/js/categoryView.js -o public/build/babel/categoryView.js --presets @babel/preset-env  ",
     "productView-babel": "babel src/js/productView.js -o public/build/babel/productView.js --presets @babel/preset-env  ",
-    "storage-babel": "babel src/js/storage.js -o public/build/babel/storage.js --presets @babel/preset-env  "
+    "storage-babel": "babel src/js/storage.js -o public/build/babel/storage.js --presets @babel/preset-env  ",
+    "baselineCompliance-babel": "babel src/js/baselineCompliance.js -o public/build/babel/baselineCompliance.js --presets @babel/preset-env"
   },
   "author": "Abolfazl Rahmati",
   "license": "MIT"
