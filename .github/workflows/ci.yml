@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  build-test-coverage:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:

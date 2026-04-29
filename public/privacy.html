@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" data-i18n-content="privacyMetaDescription" content="Privacy Policy for the Inventory App, including local storage and basic data handling practices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <title data-i18n="privacyDocumentTitle">Privacy Policy | Inventory App</title>
+    <link rel="stylesheet" href="build/style.css">
+</head>
+
+<body class="font-outfit bg-main flex min-h-screen flex-col items-center text-stone-100">
+    <header class="mt-12 flex w-full max-w-[760px] flex-col items-start gap-5 px-5">
+        <div class="flex w-full items-center justify-between gap-4">
+            <a href="index.html" data-i18n="backToApp" class="font-semibold text-green-500 underline underline-offset-4">Back to Inventory App</a>
+            <div class="flex items-center gap-3 text-stone-100">
+                <label for="languageSelect" data-i18n="languageLabel" class="text-sm font-semibold">Language</label>
+                <select id="languageSelect" class="form-select appearance-none rounded-lg border-2 border-[#394247] bg-[#1A262D] px-3 py-2 pr-8 text-sm text-stone-100 outline-none focus:border-green-600" aria-label="Language selector">
+                    <option value="en" data-i18n="languageEnglish">English</option>
+                    <option value="zh" data-i18n="languageChinese">中文</option>
+                </select>
+            </div>
+        </div>
+        <h1 data-i18n="privacyPageTitle" class="text-3xl font-bold text-green-600">Privacy Policy</h1>
+    </header>
+
+    <main class="mt-8 w-full max-w-[760px] px-5 pb-28">
+        <section class="rounded-2xl bg-[#1a262d] p-6 leading-7">
+            <p data-i18n="privacyIntro">This Privacy Policy explains how the Inventory App handles information while you use this browser-based application.</p>
+
+            <h2 data-i18n="privacyLocalStorageTitle" class="mt-6 text-xl font-semibold text-white">Local Storage Usage</h2>
+            <p data-i18n="privacyLocalStorageText" class="mt-2 text-stone-300">The app stores inventory data, category data, language preferences, and consent choices in your browser local storage. This information remains on your device unless you clear browser data or reset the application.</p>
+
+            <h2 data-i18n="privacyDataHandlingTitle" class="mt-6 text-xl font-semibold text-white">Data Handling</h2>
+            <p data-i18n="privacyDataHandlingText" class="mt-2 text-stone-300">The app does not require an account and does not intentionally transmit your inventory entries to an external server. Any deployment platform may still process basic technical information such as IP address and request logs.</p>
+
+            <h2 data-i18n="privacyChoicesTitle" class="mt-6 text-xl font-semibold text-white">Your Choices</h2>
+            <p data-i18n="privacyChoicesText" class="mt-2 text-stone-300">You may accept or decline the local storage notice. You can also clear saved data at any time through your browser settings.</p>
+        </section>
+    </main>
+
+    <script src="build/webpack/bundle.js" type="module"></script>
+</body>
+
+</html>

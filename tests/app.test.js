@@ -57,6 +57,22 @@ describe("Application bootstrap", () => {
         document.dispatchEvent(new Event("DOMContentLoaded"))
 
         expect(document.querySelector("#categoriesSelect").textContent).toContain("Hardware")
-        expect(document.querySelector("#productsCenter").children).toHaveLength(0)
+        expect(document.querySelector("#productsCenter").textContent).toContain("No products found.")
+    })
+
+    it("initializes baseline compliance on pages without inventory forms", async () => {
+        document.body.innerHTML = `
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+            </select>
+            <h1 data-i18n="privacyPageTitle">Privacy Policy</h1>
+        `
+
+        await import("../src/js/app.js?privacy")
+        document.dispatchEvent(new Event("DOMContentLoaded"))
+
+        expect(document.querySelector("[data-i18n='privacyPageTitle']").textContent).toBe("Privacy Policy")
+        expect(document.querySelector("#cookieConsentBanner")).not.toBeNull()
     })
 })
