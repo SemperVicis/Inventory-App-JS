@@ -2,11 +2,18 @@ import { defineConfig } from "vitest/config"
 
 export default defineConfig({
     test: {
-        environment: "node",
+        environment: "jsdom",
+        globals: false,
         coverage: {
             provider: "v8",
-            reporter: ["text", "html"],
-            include: ["src/js/storage.js"],
+            reporter: ["text", "html", "lcov"],
+            include: ["src/js/**/*.js"],
+            thresholds: {
+                statements: 80,
+                branches: 80,
+                functions: 80,
+                lines: 80,
+            },
         },
     },
 })

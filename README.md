@@ -1,5 +1,7 @@
 # 📦 **Inventory App JS**
 
+[![codecov](https://codecov.io/gh/SemperVicis/Inventory-App-JS/graph/badge.svg)](https://codecov.io/gh/SemperVicis/Inventory-App-JS)
+
 **A sleek and efficient inventory management application powered by JavaScript.**  
 Easily track, update, and manage your inventory with an intuitive UI and dynamic functionality.
 
