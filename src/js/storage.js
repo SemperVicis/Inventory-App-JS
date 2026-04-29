@@ -22,7 +22,7 @@ export default class Storage {
     }
 
     static removeProduct(deletedId) {
-        const UpdatedProducts = this.getProducts.filter((product) => product.id !== deletedId)
+        const UpdatedProducts = this.getProducts.filter((product) => Number(product.id) !== deletedId)
         this.saveProducts(UpdatedProducts)
     }
 

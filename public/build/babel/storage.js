@@ -43,7 +43,7 @@ var Storage = exports["default"] = /*#__PURE__*/function () {
     key: "removeProduct",
     value: function removeProduct(deletedId) {
       var UpdatedProducts = this.getProducts.filter(function (product) {
-        return product.id !== deletedId;
+        return Number(product.id) !== deletedId;
       });
       this.saveProducts(UpdatedProducts);
     }
