@@ -107,13 +107,16 @@
     "yaml": "^2.5.1"
   },
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --watch ",
-    "tailwind-minify": " npx tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify  ",
+    "dev": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --watch ",
+    "build:css": "tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify",
+    "build:babel": "npm run app-babel && npm run categoryView-babel && npm run productView-babel && npm run storage-babel && npm run baselineCompliance-babel",
+    "tailwind-minify": " tailwindcss -i ./src/css/tailwind.css -o ./public/build/style.css --minify  ",
     "app-babel": "babel src/js/app.js -o public/build/babel/app.js --presets @babel/preset-env ",
     "categoryView-babel": "babel src/js/categoryView.js -o public/build/babel/categoryView.js --presets @babel/preset-env  ",
     "productView-babel": "babel src/js/productView.js -o public/build/babel/productView.js --presets @babel/preset-env  ",
     "storage-babel": "babel src/js/storage.js -o public/build/babel/storage.js --presets @babel/preset-env  ",
-    "build": "webpack"
+    "baselineCompliance-babel": "babel src/js/baselineCompliance.js -o public/build/babel/baselineCompliance.js --presets @babel/preset-env",
+    "build": "npm run build:css && npm run build:babel && webpack"
   },
   "author": "Abolfazl Rahmati",
   "license": "MIT"
