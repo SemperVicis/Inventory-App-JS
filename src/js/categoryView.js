@@ -8,6 +8,7 @@ export default class CategoryView {
         this.ctgCacelBtn = document.querySelector("#categoryCanelBtn")
         this.ctgAddBtn = document.querySelector("#categoryAddNewBtn")
         this.ctgSelect = document.querySelector("#categoriesSelect")
+        this.categoryFeedback = this.createFeedbackElement()
         // event listeners
         this.ctgAddBtn.addEventListener("click", () => {
             this.addNewCategory()
@@ -42,7 +43,7 @@ export default class CategoryView {
                 // edit
                 existedItem.title = newCategroy.title;
                 existedItem.description = newCategroy.description;
-                alert("this category name has been added before so we will update the category description!")
+                this.showCategoryFeedback("This category already exists. The category workflow will handle description updates.")
                 return
             } else {
                 // new
@@ -55,7 +56,7 @@ export default class CategoryView {
             // instant update html category list from storage
             this.instantCtgUpdate(savedCategories)
         } else {
-            alert("your entered title for category must be at least 2 characters!!!")
+            this.showCategoryFeedback("Category title must be at least 2 characters.")
         }
     }
 
@@ -63,7 +64,11 @@ export default class CategoryView {
         const ctgListTitles = categories.map(obj => obj.title.trim())
         console.log(categories);
         // create option for each category
-        this.ctgSelect.innerHTML = ` <option selected value="none">- select category -</option>  `
+        const defaultOption = document.createElement("option")
+        defaultOption.selected = true
+        defaultOption.value = "none"
+        defaultOption.textContent = "- select category -"
+        this.ctgSelect.replaceChildren(defaultOption)
         ctgListTitles.forEach(option => {
             const newOption = document.createElement("option")
             newOption.value = option;
@@ -71,6 +76,25 @@ export default class CategoryView {
             // append new created option to select tg
             this.ctgSelect.append(newOption)
         });
+    }
+
+    createFeedbackElement() {
+        const feedback = document.createElement("div")
+        feedback.id = "categoryFormFeedback"
+        feedback.className = "category-error-message"
+        feedback.setAttribute("role", "alert")
+        feedback.setAttribute("aria-live", "polite")
+        feedback.hidden = true
+        feedback.style.color = "#fca5a5"
+        feedback.style.marginTop = "0.75rem"
+        feedback.style.fontSize = "0.875rem"
+        this.ctgAddBtn.parentElement.after(feedback)
+        return feedback
+    }
+
+    showCategoryFeedback(message) {
+        this.categoryFeedback.textContent = message
+        this.categoryFeedback.hidden = false
     }
 
 }
